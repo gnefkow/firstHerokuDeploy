@@ -43,6 +43,10 @@ var characters = [
 
 // Basic route that sends the user first to the AJAX Page
 app.get("/", function(req, res) {
+  res.json(path.join(__dirname, "public/index.html"));
+});
+
+app.get("/", function(req, res) {
   res.sendFile(path.join(__dirname, "view.html"));
 });
 
@@ -91,7 +95,4 @@ app.post("/api/characters", function(req, res) {
 // =============================================================
 app.listen(PORT, function() {
   console.log("App listening on PORT " + PORT);
-  app.get("/", function(req, res) {
-    res.json(path.join(__dirname, "public/index.html"));
-  });
 });
